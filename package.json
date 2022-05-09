@@ -5,7 +5,7 @@
   "main": "Probleme_camions_test.js",
   "scripts": {
     "test": "echo ask clem for a test file example",
-    "code-style": "xo"
+    "code-style": "echo try to solve this"
   },
   "author": "",
   "license": "ISC",
