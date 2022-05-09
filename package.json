@@ -1,0 +1,19 @@
+{
+  "name": "traveling_salesman_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Probleme_camions_test.js",
+  "scripts": {
+    "test": "echo ask clem for a test file example",
+    "code-style": "xo"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^2.6.2",
+    "xo": "^0.48.0"
+  },
+  "dependencies": {
+    "ramda": "^0.28.0"
+  }
+}
