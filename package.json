@@ -1,7 +1,7 @@
 {
-  "name": "Metar-taf-translator",
+  "name": "metar-taf-translator",
   "version": "1.0.0",
-  "description": "",
+  "description": "// Notes :\r // dot.env permet de charger des valeurs depuis mon environnement\r // xo, gulp, mocha, test unitaires, git, gitub action\r // programmation fonctionnelle uniquement",
   "main": "Metar-taf-translator.js",
   "scripts": {
     "test": "echo ask clem for a test file example",
@@ -17,5 +17,14 @@
   "dependencies": {
     "gulp": "^4.0.2",
     "ramda": "^0.28.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Meatisdelicious/optimisation-transport-camions.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Meatisdelicious/optimisation-transport-camions/issues"
+  },
+  "homepage": "https://github.com/Meatisdelicious/optimisation-transport-camions#readme"
 }
