@@ -5,7 +5,8 @@
   "main": "Probleme_camions_test.js",
   "scripts": {
     "test": "echo ask clem for a test file example",
-    "code-style": "echo try to solve this"
+    "code-style": "echo try to solve this",
+    "gulp": "gulp"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +15,7 @@
     "xo": "^0.48.0"
   },
   "dependencies": {
+    "gulp": "^4.0.2",
     "ramda": "^0.28.0"
   }
 }
