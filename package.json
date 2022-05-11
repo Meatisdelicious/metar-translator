@@ -2,7 +2,7 @@
   "name": "traveling_salesman_project",
   "version": "1.0.0",
   "description": "",
-  "main": "Probleme_camions_test.js",
+  "main": "Metar-taf-translator.js",
   "scripts": {
     "test": "echo ask clem for a test file example",
     "code-style": "echo try to solve this",
