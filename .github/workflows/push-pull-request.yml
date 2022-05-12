@@ -12,6 +12,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - name: Clear cache
+        run: chown -R 1001:1001 /github/home/.cache && echo "pwn dat cache"
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
