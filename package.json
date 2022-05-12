@@ -5,7 +5,7 @@
   "main": "Metar-taf-translator.js",
   "scripts": {
     "test": "echo ask clem for a test file example",
-    "code-style": "echo try to solve this",
+    "code-style": "xo",
     "gulp": "gulp"
   },
   "author": "",

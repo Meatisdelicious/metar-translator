@@ -1,7 +1,12 @@
-const R = require('ramda');
 
-console.log(R.add(2, 5));
-console.log(R.subtract(2, 5));
+function upper_case(str)
+ {
+     regexp = /[A-Z]/;
+     console.log(regexp.test(str));
+     console.log("Métar de l'aerodrome", regexp );
 
-let res = R.add(R.add(2, 5), R.subtract(2, 10));
-console.log(res);
+ }
+ upper_case("LFPN");
+
+
+
