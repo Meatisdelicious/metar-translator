@@ -2,7 +2,8 @@
   "name": "metar-taf-translator",
   "version": "1.0.0",
   "description": "// Notes :\r // dot.env permet de charger des valeurs depuis mon environnement\r // xo, gulp, mocha, test unitaires, git, gitub action\r // programmation fonctionnelle uniquement",
-  "main": "Metar-taf-translator.js",
+  "main": "metar-taf-translator.js",
+  "type": "module",
   "scripts": {
     "test": "echo ask clem for a test file example",
     "code-style": "xo",
@@ -11,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "fs-extra": "^10.1.0",
     "gulp": "^4.0.2",
     "ramda": "^0.28.0"
   },
