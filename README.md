@@ -1,5 +1,7 @@
 ﻿# Metar and Taf translator
 
+// Adrien Tirlemont
+
 // Notes :
 /*
 Commandes :
