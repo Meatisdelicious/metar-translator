@@ -7,6 +7,18 @@ import fs from 'fs-extra';
 
 /*
 
+// En fonctionnel : Temperature
+import * as R from 'ramda';
+const regexp = /Q[0-9]{4}/gim;
+const recuptempe = (str) => regexp.exec(str);
+const getFromRegex = (fn) => R.pipe(fn, R.head); //prd que la tete du execs car il retourne plusieurs trucs
+const logMethod = (string) => R.tap(R.pipe(R.concat(string), console.log)); //tap retourne exactement la mm valeur que l'entrer de facon a pouvoir mettre des console.log()
+
+R.pipe(
+  getFromRegex(recuptempe),
+  logMethod('Pression (Hpa) de ')
+)('LFPX 101400Z AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT=');
+
 // En fonctionnel : Type de metar
 import * as R from 'ramda';
 const regexp = /A[A-Z]{3}/gim;
