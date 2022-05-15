@@ -1,13 +1,15 @@
 ﻿# Metar and Taf translator
 
+// Auteur : Adrien Tirlemont
 
-Traducteur de Metar ( information meteorologiques aeronautiques automatisées ), en langage humain. 
+Traducteur de Metar et TAF (information meteorologiques aeronautiques automatisées) en langage humain. 
 
-// Adrien Tirlemont
+Ce projet a été code en fonctionnel, avec le langage javascript. 
 
 
-On part de ca : 
-LFPX 101400Z AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT=
+
+On part de cela :
+Metar : LFPX 101400Z AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT=
 
 Et on retourne : 
 
