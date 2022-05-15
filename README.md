@@ -1,6 +1,10 @@
 ﻿# Metar and Taf translator
 
+
 Traducteur de Metar ( information meteorologiques aeronautiques automatisées ), en langage humain. 
+
+// Adrien Tirlemont
+
 
 On part de ca : 
 LFPX 101400Z AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT=
