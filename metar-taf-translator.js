@@ -5,16 +5,28 @@
 import * as R from 'ramda';
 import fs from 'fs-extra';
 
+// En fonctionnel : Temperature au point de rosée
+// import * as R from 'ramda';
+const regexp5 = /\/[0-9]{2}/gi;
+const recupTempeRose = (str) => regexp5.exec(str);
+const getFromRegex5 = (fn) => R.pipe(fn, R.head); //prd que la tete du execs car il retourne plusieurs trucs
+const logMethod5 = (string) => R.tap(R.pipe(R.concat(string), console.log)); //tap retourne exactement la mm valeur que l'entrer de facon a pouvoir mettre des console.log()
+
+R.pipe(
+  getFromRegex5(recupTempeRose),
+  logMethod5('Temperature au point de rosée (°C) de : ')
+)('LFPX 101400Z AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT=');
+
 // En fonctionnel : Temperature ambiante
 // import * as R from 'ramda';
 const regexp4 = /[0-9]{2}\//gi;
-const recupTempeAmb = (str) => regexp4.exec(str);
+const recupTempeMax = (str) => regexp4.exec(str);
 const getFromRegex4 = (fn) => R.pipe(fn, R.head); //prd que la tete du execs car il retourne plusieurs trucs
 const logMethod4 = (string) => R.tap(R.pipe(R.concat(string), console.log)); //tap retourne exactement la mm valeur que l'entrer de facon a pouvoir mettre des console.log()
 
 R.pipe(
-  getFromRegex4(recupTempeAmb),
-  logMethod4('Temperature ambiante (°C) de : ')
+  getFromRegex4(recupTempeMax),
+  logMethod4('Temperature maximale (°C) de : ')
 )('LFPX 101400Z AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT=');
 
 // En fonctionnel : Pression
