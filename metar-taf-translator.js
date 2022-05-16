@@ -5,6 +5,18 @@
 import * as R from 'ramda';
 import fs from 'fs-extra';
 
+// En fonctionnel : Conditions particulières
+//import * as R from 'ramda';
+const regexp6 = /T[A-Z]{4}/gi;
+const recupConditionPart = (str) => regexp6.exec(str);
+const getFromRegex6 = (fn) => R.pipe(fn, R.head); //prd que la tete du execs car il retourne plusieurs trucs
+const logMethod6 = (string) => R.tap(R.pipe(R.concat(string), console.log)); //tap retourne exactement la mm valeur que l'entrer de facon a pouvoir mettre des console.log()
+
+R.pipe(
+  getFromRegex6(recupConditionPart),
+  logMethod6('Conditions particulières de type : ')
+)('LFPX 101400Z AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT=');
+
 // En fonctionnel : Temperature au point de rosée
 // import * as R from 'ramda';
 const regexp5 = /\/[0-9]{2}/gi;
