@@ -8,10 +8,11 @@ Ce projet a été code en fonctionnel, avec le langage javascript.
 
 
 
-On part de cela :
+On a cela en entrée :
+
 Metar : LFPX 101400Z AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT=
 
-Et on retourne : 
+On retourne en Sortie : 
 
 Metar de l'aerodrome LFPX, fait le 10 à 14h utc. 
 Metar de type Auto. Vent du 220° 15 Kt. 
