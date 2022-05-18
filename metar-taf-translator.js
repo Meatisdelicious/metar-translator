@@ -5,6 +5,23 @@
 import * as R from 'ramda';
 import fs from 'fs-extra';
 
+// En fonctionnel : Date Metar
+
+// import * as R from 'ramda';
+const regexp2emeT = /[0-9]{2}/gi;
+
+const regExpApplier = (reg) => (str) => reg.exec(str);
+const recupDataMetarFull = regExpApplier(regexp2emeT);
+const createString = (val) => `Fait le ${val} à `; // crée et met la valeur dans la string
+const getFromRegexp2emeT = (fn) => R.pipe(fn, R.head); // prd que la tete du execs car il retourne plusieurs trucs
+
+R.pipe(
+  getFromRegexp2emeT(recupDataMetarFull),
+  createString,
+  R.tap(console.log)
+  // logMethod7('fait le ')
+)('LFPX 101400 AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT=');
+
 // En fonctionnel : Conditions particulières
 //import * as R from 'ramda';
 const regexp6 = /T[A-Z]{4}/gi;
