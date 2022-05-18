@@ -5,6 +5,42 @@
 import * as R from 'ramda';
 import fs from 'fs-extra';
 
+// En fonctionnel : cap vent Metar
+
+// import * as R from 'ramda';
+const regexp9 = /[0-9]{5}KT/gi;
+const regexpp9 = /[0-9]{3}/gi;
+
+const regExpApplier9 = (reg) => (str) => reg.exec(str);
+const recupCapMetarPart = regExpApplier9(regexp9);
+const recupCapMetarFull = regExpApplier9(regexpp9);
+const recupCapMetarFullFull = R.pipe(recupCapMetarPart, recupCapMetarFull);
+const createString9 = (val) => `Vent au ${val}°`;
+const getFromRegexp9 = (fn) => R.pipe(fn, R.head); //prd que la tete du execs car il retourne plusieurs trucs
+
+R.pipe(
+  getFromRegexp9(recupCapMetarFullFull),
+  createString9,
+  R.tap(console.log)
+)('LFPX 101400Z AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT=');
+
+// En fonctionnel : heure Metar
+
+// import * as R from 'ramda';
+const regexp8 = /[0-9]{4}Z/gi;
+
+const regExpApplier8 = (reg) => (str) => reg.exec(str);
+const recupHeureMetar = regExpApplier8(regexp8);
+const createString8 = (val) => `à ${val}ulu`;
+const getFromRegexp8 = (fn) => R.pipe(fn, R.head); //prd que la tete du execs car il retourne plusieurs trucs
+
+R.pipe(
+  getFromRegexp8(recupHeureMetar),
+  createString8,
+  R.tap(console.log)
+  // logMethod7('fait le ')
+)('LFPX 101400Z AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT=');
+
 // En fonctionnel : Date Metar
 
 // import * as R from 'ramda';
@@ -12,7 +48,7 @@ const regexp2emeT = /[0-9]{2}/gi;
 
 const regExpApplier = (reg) => (str) => reg.exec(str);
 const recupDataMetarFull = regExpApplier(regexp2emeT);
-const createString = (val) => `Fait le ${val} à `; // crée et met la valeur dans la string
+const createString = (val) => `Fait le ${val} `; // crée et met la valeur dans la string
 const getFromRegexp2emeT = (fn) => R.pipe(fn, R.head); // prd que la tete du execs car il retourne plusieurs trucs
 
 R.pipe(
