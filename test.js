@@ -68,4 +68,140 @@ R.pipe(
   logMethod(' de type : ')
 )('LFPX 101400Z AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT=');
 
+// En fonctionnel : Temperature au point de rosée
+// import * as R from 'ramda';
+const regexp5 = /\/[0-9]{2}/gi;
+const recupTempeRose = (str) => regexp5.exec(str);
+const getFromRegex5 = (fn) => R.pipe(fn, R.head); //prd que la tete du execs car il retourne plusieurs trucs
+const logMethod5 = (string) => R.tap(R.pipe(R.concat(string), console.log)); //tap retourne exactement la mm valeur que l'entrer de facon a pouvoir mettre des console.log()
+
+R.pipe(
+  getFromRegex5(recupTempeRose),
+  logMethod5('Temperature au point de rosée (°C) de : ')
+)('LFPX 101400Z AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT=');
+
+// En fonctionnel : Temperature ambiante
+// import * as R from 'ramda';
+const regexp4 = /[0-9]{2}\//gi;
+const recupTempeMax = (str) => regexp4.exec(str);
+const getFromRegex4 = (fn) => R.pipe(fn, R.head); //prd que la tete du execs car il retourne plusieurs trucs
+const logMethod4 = (string) => R.tap(R.pipe(R.concat(string), console.log)); //tap retourne exactement la mm valeur que l'entrer de facon a pouvoir mettre des console.log()
+
+R.pipe(
+  getFromRegex4(recupTempeMax),
+  logMethod4('Temperature maximale (°C) de : ')
+)('LFPX 101400Z AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT=');
+
+// En fonctionnel : Pression
+// import * as R from 'ramda';
+const regexp3 = /Q[0-9]{4}/gim;
+const recupPression = (str) => regexp3.exec(str);
+const getFromRegex3 = (fn) => R.pipe(fn, R.head); //prd que la tete du execs car il retourne plusieurs trucs
+const logMethod3 = (string) => R.tap(R.pipe(R.concat(string), console.log)); //tap retourne exactement la mm valeur que l'entrer de facon a pouvoir mettre des console.log()
+
+R.pipe(
+  getFromRegex3(recupPression),
+  logMethod3('Pression (Hpa) de ')
+)('LFPX 101400Z AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT=');
+
+
+// En fonctionnel : heure Metar
+
+import * as R from 'ramda';
+const regexp8 = /[0-9]{4}Z/gi;
+
+const regExpApplier8 = (reg) => (str) => reg.exec(str);
+const recupHeureMetar = regExpApplier8(regexp8);
+const createString8 = (val) => `à ${val}ulu`;
+const getFromRegexp8 = (fn) => R.pipe(fn, R.head); //prd que la tete du execs car il retourne plusieurs trucs
+
+R.pipe(
+  getFromRegexp8(recupHeureMetar),
+  createString8,
+  R.tap(console.log)
+  // logMethod7('fait le ')
+)('LFPX 101400Z AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT=');
+
+// En fonctionnel : Date Metar
+
+// import * as R from 'ramda';
+const regexp2emeT = /[0-9]{2}/gi;
+
+const regExpApplier = (reg) => (str) => reg.exec(str);
+const recupDataMetarFull = regExpApplier(regexp2emeT);
+const createString = (val) => `Fait le ${val} `; // crée et met la valeur dans la string
+const getFromRegexp2emeT = (fn) => R.pipe(fn, R.head); // prd que la tete du execs car il retourne plusieurs trucs
+
+R.pipe(
+  getFromRegexp2emeT(recupDataMetarFull),
+  createString,
+  R.tap(console.log)
+  // logMethod7('fait le ')
+)('LFPX 101400 AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT=');
+
+
+// En fonctionnel : cap vent Metar
+
+// import * as R from 'ramda';
+const regexp9 = /[0-9]{5}KT/gi;
+const regexpp9 = /[0-9]{3}/gi;
+
+const regExpApplier9 = (reg) => (str) => reg.exec(str);
+const recupCapMetarPart = regExpApplier9(regexp9);
+const recupCapMetarFull = regExpApplier9(regexpp9);
+const recupCapMetarFullFull = R.pipe(recupCapMetarPart, recupCapMetarFull);
+const createString9 = (val) => `Vent au ${val}°`;
+const getFromRegexp9 = (fn) => R.pipe(fn, R.head); //prd que la tete du execs car il retourne plusieurs trucs
+
+R.pipe(
+  getFromRegexp9(recupCapMetarFullFull),
+  createString9,
+  R.tap(console.log)
+)('LFPX 101400Z AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT=');
+
+
+
+// En fonctionnel : Force vent Metar
+
+// import * as R from 'ramda';
+import * as R from 'ramda';
+
+const regexp10 = /[0-9]{5}KT/gi;
+const regexpp10 = /[0-9]{2}KT/gi;
+
+const regExpApplier10 = (reg) => (str) => reg.exec(str);
+const recupVentMetarPart = regExpApplier10(regexp10);
+const recupVentMetarFull = regExpApplier10(regexpp10);
+const recupVentMetarFullFull = R.pipe(recupVentMetarPart, recupVentMetarFull);
+const createString10 = (val) => `de ${val}`;
+const getFromRegexp10 = (fn) => R.pipe(fn, R.head); //prd que la tete du execs car il retourne plusieurs trucs
+
+R.pipe(
+  getFromRegexp10(recupVentMetarFullFull),
+  createString10,
+  R.tap(console.log)
+)('LFPX 101400Z AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT=');
+
 */
+
+/*
+// En fonctionnel : Date Metar
+
+import * as R from 'ramda';
+//const regexp7 = /[0-9]{6}\Z/gi;
+const regexp2emeT = /[0-9]{2}/gi;
+
+const regExpApplier = (reg) => (str) => reg.exec(str);
+//const recupDateMetarPart = regExpApplier(regexp7);
+const recupDataMetarFull = regExpApplier(regexp2emeT);
+const createString = (val) => `Fait le ${val} à `;
+const getFromRegexp2emeT = (fn) => R.pipe(fn, R.head); //prd que la tete du execs car il retourne plusieurs trucs
+//const logMethod7 = (string) => R.tap(R.pipe(R.concat(string), console.log)); //tap retourne exactement la mm valeur que l'entrer de facon a pouvoir mettre des console.log()
+
+R.pipe(
+  getFromRegexp2emeT(recupDataMetarFull),
+  createString,
+  R.tap(console.log)
+  // logMethod7('fait le ')
+)('LFPX 101400 AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT=');
+ */
