@@ -139,8 +139,8 @@ const jsonToJsonFile = writeJson1('metar.json');
 
 const traduceMetar = R.pipe(
   R.applySpec({
-    codeOaci: recupCodeOaci,
-    DateMetar: recupFcDateMetar,
+    recupCodeOaci: recupCodeOaci,
+    recupFcDateMetar: recupFcDateMetar,
     HeureMetar: recupFcHeureMetar,
     typeMetar: recupFcTypeMetar,
     CapVent: recupFcCapVent,
@@ -154,6 +154,13 @@ const traduceMetar = R.pipe(
   R.tap(jsonToJsonFile)
 );
 
-traduceMetar(
-  'LFPN 101400Z AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT='
+console.log(
+  typeof traduceMetar(
+    'LFPN 101400Z AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT='
+  )
 );
+
+// LFPX 161600Z AUTO 1005KT 120V200 CAVOK 19/10 Q1005 TEMPO 22012G22KT=
+
+export {traduceMetar};
+export {recupCodeOaci};

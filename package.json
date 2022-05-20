@@ -5,15 +5,17 @@
   "main": "metar-taf-translator.js",
   "type": "module",
   "scripts": {
-    "test": "echo ask clem for a test file example",
+    "test": "mocha --recursive",
     "code-style": "xo",
     "gulp": "gulp"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.3.6",
     "fs-extra": "^10.1.0",
     "gulp": "^4.0.2",
+    "mocha": "^10.0.0",
     "ramda": "^0.28.0"
   },
   "devDependencies": {
