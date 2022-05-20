@@ -1,14 +1,14 @@
 import {expect} from 'chai';
-import {recupCodeOaci} from '../metar-translator.js';
+import {recupFcTypeMetar} from '../metar-translator.js';
 
 describe('../metar-translator.js', () => {
-  describe('#traduceMetar()', () => {
-    it('should should return a json format', () => {
+  describe('#recupFcTypeMetar()', () => {
+    it('Should return a string', () => {
       expect(
-        recupCodeOaci(
+        recupFcTypeMetar(
           'LFPN 101400Z AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT='
         )
-      ).to.be.an('object');
+      ).to.be.an('String');
 
       it.skip('should return an error', () => {});
     });

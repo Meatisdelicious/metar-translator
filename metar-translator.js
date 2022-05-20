@@ -126,7 +126,7 @@ const stringtoCodeOaci = (string_) => regexp1.exec(string_);
 const getFromRegex1 = (fn) => R.pipe(fn, R.head); // Prd que la tete du execs car il retourne plusieurs trucs
 const logMethod1 = (string_) => R.pipe(R.concat(string_)); // Tap retourne exactement la mm valeur que l'entrer de facon a pouvoir mettre des console.log()
 
-const recupCodeOaci = (string_) =>
+const recupFcCodeOaci = (string_) =>
   R.pipe(
     getFromRegex1(stringtoCodeOaci),
     logMethod1('Metar de l aerodrome ')
@@ -139,13 +139,12 @@ const jsonToJsonFile = writeJson1('metar.json');
 
 const traduceMetar = R.pipe(
   R.applySpec({
-    recupCodeOaci: recupCodeOaci,
+    recupCodeOaci: recupFcCodeOaci,
     recupFcDateMetar: recupFcDateMetar,
     HeureMetar: recupFcHeureMetar,
     typeMetar: recupFcTypeMetar,
     CapVent: recupFcCapVent,
     ForceVent: recupFcForceVent,
-
     TempeMax: recupFcTempeMax,
     TempeRose: recupFcTempeRose,
     Pression: recupFcPression,
@@ -159,8 +158,14 @@ console.log(
     'LFPN 101400Z AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT='
   )
 );
+console.log(
+  typeof recupFcCodeOaci(
+    'LFPN 101400Z AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT='
+  )
+);
 
 // LFPX 161600Z AUTO 1005KT 120V200 CAVOK 19/10 Q1005 TEMPO 22012G22KT=
 
 export {traduceMetar};
-export {recupCodeOaci};
+export {recupFcCodeOaci};
+export {recupFcTypeMetar};
