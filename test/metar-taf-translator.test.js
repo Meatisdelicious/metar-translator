@@ -1,7 +1,7 @@
 import {expect} from 'chai';
-import {recupCodeOaci} from '../metar-taf-translator.js';
+import {recupCodeOaci} from '../metar-translator.js';
 
-describe('../metar-taf-translator.js', () => {
+describe('../metar-translator.js', () => {
   describe('#traduceMetar()', () => {
     it('should should return a json format', () => {
       expect(

@@ -2,7 +2,7 @@
   "name": "metar-taf-translator",
   "version": "1.0.0",
   "description": "// Notes :\r // dot.env permet de charger des valeurs depuis mon environnement\r // xo, gulp, mocha, test unitaires, git, gitub action\r // programmation fonctionnelle uniquement",
-  "main": "metar-taf-translator.js",
+  "main": "metar-translator.js",
   "type": "module",
   "scripts": {
     "test": "mocha --recursive",
