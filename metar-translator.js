@@ -73,7 +73,11 @@ const recupFcConditionsPart = (string_) =>
 // En fonctionnel : Temperature au point de rosée
 
 const regexp5 = /\/\d{2}/gi;
-const recupTempeRose = (string_) => regexp5.exec(string_);
+const regexpp5 = /\d{2}/gi;
+const regexpApplier5 = (reg) => (string_) => reg.exec(string_);
+const recupTempeRpart1 = regexpApplier5(regexp5);
+const recupTempeRpart2 = regexpApplier5(regexpp5);
+const recupTempeRose = R.pipe(recupTempeRpart1, recupTempeRpart2);
 const getFromRegex5 = (fn) => R.pipe(fn, R.head);
 const logMethod5 = (string_) => R.pipe(R.concat(string_));
 
@@ -83,10 +87,14 @@ const recupFcTempeRose = (string_) =>
     logMethod5('Temperature au point de rosée (°C) de : ')
   )(string_);
 
-// En fonctionnel : Temperature ambiante
+// En fonctionnel : Temperature Maximale
 
 const regexp4 = /\d{2}\//gi;
-const recupTempeMax = (string_) => regexp4.exec(string_);
+const regexpp4 = /\d{2}/gi;
+const regexpApplier4 = (reg) => (string_) => reg.exec(string_);
+const recupTempePart = regexpApplier4(regexp4);
+const recupTempePart2 = regexpApplier4(regexpp4);
+const recupTempeMax = R.pipe(recupTempePart, recupTempePart2);
 const getFromRegex4 = (fn) => R.pipe(fn, R.head);
 const logMethod4 = (string_) => R.pipe(R.concat(string_));
 
@@ -138,18 +146,19 @@ const writeJson1 = (file) => (data) => fs.writeJson(file, data);
 const jsonToJsonFile = writeJson1('metar.json');
 
 // On applique toutes les fonctions afin de traiter le Metar
+
 const traduceMetar = R.pipe(
   R.applySpec({
-    recupFcCodeOaci,
-    recupFcDateMetar,
-    recupFcHeureMetar,
-    recupFcTypeMetar,
-    recupFcCapVent,
-    recupFcForceVent,
-    recupFcTempeMax,
-    recupFcTempeRose,
-    recupFcPression,
-    recupFcConditionsPart
+    codeOaci: recupFcCodeOaci,
+    dateMetar: recupFcDateMetar,
+    heureMetar: recupFcHeureMetar,
+    typeMetar: recupFcTypeMetar,
+    capVent: recupFcCapVent,
+    forceVent: recupFcForceVent,
+    tempeMax: recupFcTempeMax,
+    tempeRose: recupFcTempeRose,
+    laPression: recupFcPression,
+    conditionsPart: recupFcConditionsPart
   }),
   R.tap(jsonToJsonFile)
 );

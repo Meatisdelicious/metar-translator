@@ -12,17 +12,17 @@ Metar : LFPX 101400Z AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT=
 
 ##### On retourne en Sortie un fichier JSON contenant :
 
-{"codeOaci":"Metar de l aerodrome LFPN",gut
-"DateMetar":"Fait le 10 ",
-"HeureMetar":"à 1400Zulu",
+```terminal
+{"codeOaci":"Metar de l aerodrome LFPN",
+"dateMetar":"Fait le 10 ",
+"heureMetar":"à 1400Zulu",
 "typeMetar":" de type : AUTO",
-"CapVent":"Vent au 220°",
-"ForceVent":"de 15KT",
-"TempeMax":"Temperature maximale (°C) de : 28/"
-,"TempeRose":"Temperature au point de rosée (°C) de : /12"
-,"Pression":"Pression (Hpa) de Q1017",
-"ConditionsPart":"Conditions particulières de type : TEMPO"}
-
-
+"capVent":"Vent au 220°",
+"forceVent":"de 15KT",
+"tempeMax":"Temperature maximale (°C) de : 28",
+"tempeRose":"Temperature au point de rosée (°C) de : 12",
+"laPression":"Pression (Hpa) de Q1017",
+"conditionsPart":"Conditions particulières de type : TEMPO"}
+```
 
 
