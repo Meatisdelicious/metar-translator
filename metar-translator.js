@@ -137,35 +137,36 @@ const recupFcCodeOaci = (string_) =>
 const writeJson1 = (file) => (data) => fs.writeJson(file, data);
 const jsonToJsonFile = writeJson1('metar.json');
 
+// On applique toutes les fonctions afin de traiter le Metar
 const traduceMetar = R.pipe(
   R.applySpec({
-    recupCodeOaci: recupFcCodeOaci,
-    recupFcDateMetar: recupFcDateMetar,
-    HeureMetar: recupFcHeureMetar,
-    typeMetar: recupFcTypeMetar,
-    CapVent: recupFcCapVent,
-    ForceVent: recupFcForceVent,
-    TempeMax: recupFcTempeMax,
-    TempeRose: recupFcTempeRose,
-    Pression: recupFcPression,
-    ConditionsPart: recupFcConditionsPart
+    recupFcCodeOaci,
+    recupFcDateMetar,
+    recupFcHeureMetar,
+    recupFcTypeMetar,
+    recupFcCapVent,
+    recupFcForceVent,
+    recupFcTempeMax,
+    recupFcTempeRose,
+    recupFcPression,
+    recupFcConditionsPart
   }),
   R.tap(jsonToJsonFile)
 );
 
 console.log(
-  typeof traduceMetar(
+  traduceMetar(
     'LFPN 101400Z AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT='
   )
 );
+
 console.log(
-  typeof recupFcCodeOaci(
+  recupFcCodeOaci(
     'LFPN 101400Z AUTO 22015KT 170V250 CAVOK 28/12 Q1017 TEMPO 22012G22KT='
   )
 );
+// Autre Metar à tester :
+// LFPX 181600Z AUTO 1005KT 120V200 CAVOK 19/10 Q1005 TEMPO 22012G22KT=
 
-// LFPX 161600Z AUTO 1005KT 120V200 CAVOK 19/10 Q1005 TEMPO 22012G22KT=
-
-export {traduceMetar};
 export {recupFcCodeOaci};
 export {recupFcTypeMetar};
