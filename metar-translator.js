@@ -10,9 +10,9 @@ import fs from 'fs-extra';
 const regexp10 = /\d{5}kt/gi;
 const regexpp10 = /\d{2}kt/gi;
 
-const regExpApplier10 = (reg) => (string_) => reg.exec(string_);
-const recupVentMetarPart = regExpApplier10(regexp10);
-const recupVentMetarFull = regExpApplier10(regexpp10);
+const regExpApplier = (reg) => (string_) => reg.exec(string_); // Applique le regexp au string
+const recupVentMetarPart = regExpApplier(regexp10);
+const recupVentMetarFull = regExpApplier(regexpp10);
 const recupVentMetarFullFull = R.pipe(recupVentMetarPart, recupVentMetarFull);
 const createString10 = (value) => `de ${value}`;
 const getFromRegexp10 = (fn) => R.pipe(fn, R.head);
@@ -25,9 +25,8 @@ const recupFcForceVent = (string_) =>
 const regexp9 = /\d{5}kt/gi;
 const regexpp9 = /\d{3}/gi;
 
-const regExpApplier9 = (reg) => (string_) => reg.exec(string_);
-const recupCapMetarPart = regExpApplier9(regexp9);
-const recupCapMetarFull = regExpApplier9(regexpp9);
+const recupCapMetarPart = regExpApplier(regexp9);
+const recupCapMetarFull = regExpApplier(regexpp9);
 const recupCapMetarFullFull = R.pipe(recupCapMetarPart, recupCapMetarFull);
 const createString9 = (value) => `Vent au ${value}°`;
 const getFromRegexp9 = (fn) => R.pipe(fn, R.head);
@@ -39,8 +38,7 @@ const recupFcCapVent = (string_) =>
 
 const regexp8 = /\d{4}z/gi;
 
-const regExpApplier8 = (reg) => (string_) => reg.exec(string_);
-const recupHeureMetar = regExpApplier8(regexp8);
+const recupHeureMetar = regExpApplier(regexp8);
 const createString8 = (value) => `à ${value}ulu`;
 const getFromRegexp8 = (fn) => R.pipe(fn, R.head);
 
@@ -50,7 +48,7 @@ const recupFcHeureMetar = (string_) =>
 // En fonctionnel : Date Metar
 
 const regexp2emeT = /\d{2}/gi;
-const regExpApplier = (reg) => (string_) => reg.exec(string_);
+
 const recupDateMetarFull = regExpApplier(regexp2emeT);
 const createString = (value) => `Fait le ${value} `; // Crée et met la valeur dans la string
 const getFromRegexp2emeT = (fn) => R.pipe(fn, R.head); // Prd que la tete du execs car il retourne plusieurs trucs
@@ -61,6 +59,7 @@ const recupFcDateMetar = (string_) =>
 // En fonctionnel : Conditions particulières
 
 const regexp6 = /t[a-z]{4}/gi;
+
 const recupConditionPart = (string_) => regexp6.exec(string_);
 const getFromRegex6 = (fn) => R.pipe(fn, R.head);
 const logMethod6 = (string_) => R.pipe(R.concat(string_));
@@ -74,9 +73,9 @@ const recupFcConditionsPart = (string_) =>
 
 const regexp5 = /\/\d{2}/gi;
 const regexpp5 = /\d{2}/gi;
-const regexpApplier5 = (reg) => (string_) => reg.exec(string_);
-const recupTempeRpart1 = regexpApplier5(regexp5);
-const recupTempeRpart2 = regexpApplier5(regexpp5);
+
+const recupTempeRpart1 = regExpApplier(regexp5);
+const recupTempeRpart2 = regExpApplier(regexpp5);
 const recupTempeRose = R.pipe(recupTempeRpart1, recupTempeRpart2);
 const getFromRegex5 = (fn) => R.pipe(fn, R.head);
 const logMethod5 = (string_) => R.pipe(R.concat(string_));
@@ -91,9 +90,9 @@ const recupFcTempeRose = (string_) =>
 
 const regexp4 = /\d{2}\//gi;
 const regexpp4 = /\d{2}/gi;
-const regexpApplier4 = (reg) => (string_) => reg.exec(string_);
-const recupTempePart = regexpApplier4(regexp4);
-const recupTempePart2 = regexpApplier4(regexpp4);
+
+const recupTempePart = regExpApplier(regexp4);
+const recupTempePart2 = regExpApplier(regexpp4);
 const recupTempeMax = R.pipe(recupTempePart, recupTempePart2);
 const getFromRegex4 = (fn) => R.pipe(fn, R.head);
 const logMethod4 = (string_) => R.pipe(R.concat(string_));
