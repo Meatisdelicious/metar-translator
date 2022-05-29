@@ -160,5 +160,6 @@ console.log(
 // Autre Metar à tester :
 // LFPX 181600Z AUTO 1005KT 120V200 CAVOK 19/10 Q1005 TEMPO 22012G22KT=
 
+// On exporte ces fonctions pour les tester avec les test unitaires
 export {recupFcCodeOaci};
 export {recupFcTypeMetar};
